@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login 3 - AULA ESPEJO UNL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login3.css') }}">
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <div class="nav-header">
+        <button class="nav-btn back-btn" onclick="goBack()">
+            <i class="fa fa-arrow-left"></i>
+            Regresar al Selector
+        </button>
+        <button class="nav-btn home-btn" onclick="goHome()">
+            <i class="fa fa-home"></i>
+            Menú Principal
+        </button>
+    </div>    <h2>Login Tipo 3 - Acceso Administrativo</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Crear Cuenta</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>o usa tu correo para el registro</span>
+                <input type="text" placeholder="Nombre" />
+                <input type="email" placeholder="Correo Electrónico" />
+                <input type="password" placeholder="Contraseña" />
+                <button>Registrarse</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Iniciar Sesión</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>o usa tu cuenta</span>
+                <input type="email" placeholder="Correo Electrónico" />
+                <input type="password" placeholder="Contraseña" />
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button>Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>¡Bienvenido de Vuelta!</h1>
+                    <p>Para mantenerte conectado con nosotros, inicia sesión con tu información personal</p>
+                    <button class="ghost" id="signIn">Iniciar Sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>¡Hola, Amigo!</h1>
+                    <p>Ingresa tus datos personales y comienza tu viaje con nosotros</p>
+                    <button class="ghost" id="signUp">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>    <footer>
+        <p>
+            &copy; 2024 AULA ESPEJO UNL - Todos los derechos reservados
+        </p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/login3.js') }}"></script>
+    <script>
+        function goBack() {
+            window.location.href = '/login-selector';
+        }
+
+        function goHome() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

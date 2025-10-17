@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Login - AULA ESPEJO UNL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login-selector.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Fuentes -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko:400,500,600,700&display=swap">
+</head>
+<body>
+    <div class="login-selector-container">
+        <!-- Header -->
+        <header class="selector-header">
+            <div class="header-content">
+                <h1 class="main-title">AULA ESPEJO UNL</h1>
+                <p class="subtitle">Selecciona tu método de acceso</p>
+            </div>
+            <button class="back-btn" onclick="goBack()">
+                <i class="fa fa-arrow-left"></i>
+                Regresar al Menú
+            </button>
+        </header>
+
+        <!-- Login Options Grid -->
+        <div class="login-grid">
+            <div class="login-option" onclick="selectLogin(1)">
+                <div class="login-icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <h3>Login Tipo 1</h3>
+                <p>Acceso estándar para estudiantes</p>
+                <div class="login-arrow">
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <div class="login-option" onclick="selectLogin(2)">
+                <div class="login-icon">
+                    <i class="fa fa-lock"></i>
+                </div>
+                <h3>Login Tipo 2</h3>
+                <p>Acceso seguro para profesores</p>
+                <div class="login-arrow">
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+            </div>
+
+            <div class="login-option" onclick="selectLogin(3)">
+                <div class="login-icon">
+                    <i class="fa fa-key"></i>
+                </div>
+                <h3>Login Tipo 3</h3>
+                <p>Acceso administrativo</p>
+                <div class="login-arrow">
+                    <i class="fa fa-arrow-right"></i>
+                </div>
+            </div>
+
+        <!-- Footer -->
+        <footer class="selector-footer">
+            <p>&copy; 2024 AULA ESPEJO UNL - Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        function selectLogin(type) {
+            // Agregar efecto de clic
+            event.target.closest('.login-option').classList.add('clicked');
+            
+            // Redirigir después de una pequeña animación
+            setTimeout(() => {
+                window.location.href = `/login/${type}`;
+            }, 300);
+        }
+
+        function goBack() {
+            window.location.href = '/';
+        }
+
+        // Efecto hover mejorado
+        document.querySelectorAll('.login-option').forEach(option => {
+            option.addEventListener('mouseenter', function() {
+                this.classList.add('hover-effect');
+            });
+            
+            option.addEventListener('mouseleave', function() {
+                this.classList.remove('hover-effect');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login 2 - AULA ESPEJO UNL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login2.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <div class="nav-header">
+        <button class="nav-btn back-btn" onclick="goBack()">
+            <i class="fa fa-arrow-left"></i>
+            Regresar al Selector
+        </button>
+        <button class="nav-btn home-btn" onclick="goHome()">
+            <i class="fa fa-home"></i>
+            Menú Principal
+        </button>
+    </div>
+
+    <!-- El div "container" acepta el evento onclick como JS si lo necesitas en el futuro -->
+    <div class="container">
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="center">
+            <h2>Login Tipo 2 - Profesores</h2>
+            <p class="login-subtitle">Acceso seguro para profesores</p>
+            <form method="POST" action="/login/2">
+                <input type="email" name="email" placeholder="email" required>
+                <input type="password" name="password" placeholder="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+            <h2>&nbsp;</h2>
+        </div>
+    </div>
+    
+    <script>
+        function goBack() {
+            window.location.href = '/login-selector';
+        }
+
+        function goHome() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
