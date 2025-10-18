@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login 1 - AULA ESPEJO UNL</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login1.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <div class="nav-header">
+        <button class="nav-btn back-btn" onclick="goBack()">
+            <i class="fa fa-arrow-left"></i>
+            Regresar al Selector
+        </button>
+        <button class="nav-btn home-btn" onclick="goHome()">
+            <i class="fa fa-home"></i>
+            Menú Principal
+        </button>
+    </div>
+
+    <div class="login-container">
+        <h1>LOGIN TIPO 1</h1>
+        <p class="login-subtitle">Acceso estándar para estudiantes</p>
+        <form method="POST" action="/login/1">
+            <div class="input-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="input-group">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+            <button type="submit">SIGN IN</button>
+        </form>
+        <div class="divider">OR</div>
+        <div class="social-login">
+            <div class="social-btn">G</div>
+            <div class="social-btn">f</div>
+        </div>
+    </div>
+    
+    <script>
+        function goBack() {
+            window.location.href = '/login-selector';
+        }
+
+        function goHome() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
