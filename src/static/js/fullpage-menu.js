@@ -39,6 +39,14 @@ $(document).ready(function() {
   initMenu();
 });
 
+// Asegurar que el menú esté oculto al cargar la página
 window.onload = function() {
-  document.getElementById("nav").classList.add("hidden");
+  var nav = document.getElementById("nav");
+  var toggle = document.getElementById("toggle");
+  
+  // Asegurar que el menú esté oculto
+  nav.classList.add("hidden");
+  
+  // Asegurar que el botón muestre el icono de hamburguesa
+  toggle.classList.remove("active");
 };
