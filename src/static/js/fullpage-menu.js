@@ -40,5 +40,6 @@ $(document).ready(function() {
 });
 
 window.onload = function() {
-  document.getElementById("nav").classList.add("hidden");
+  // El menú ya está oculto por defecto en el CSS
+  // No necesitamos agregar la clase "hidden" aquí
 };
