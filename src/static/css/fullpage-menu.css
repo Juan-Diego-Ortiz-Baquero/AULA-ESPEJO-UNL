@@ -136,14 +136,15 @@ body, html {
   color: #fff;
 }
 
-/* Icono X - visible cuando el menú está cerrado */
+/* Icono de hamburguesa - visible cuando el menú está cerrado */
 .menuicon {
   position: fixed;
   top: 20px;
   right: 20px;
   width: 60px;
   height: 60px;
-  background: #fff url(https://i.postimg.cc/25t1dMY5/pngegg-1.png);
+  /* hamburguesa */
+  background: #fff url(https://i.postimg.cc/k4rb3zpp/pngwave.png);
   background-size: 40px;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -155,9 +156,10 @@ body, html {
   transition: opacity 0.3s ease-in-out;
 }
 
-/* Icono de hamburguesa - visible cuando el menú está abierto */
+/* Icono X - visible cuando el menú está abierto */
 .menuicon.active {
-  background: #fff url(https://i.postimg.cc/k4rb3zpp/pngwave.png);
+  /* X */
+  background: #fff url(https://i.postimg.cc/25t1dMY5/pngegg-1.png);
   background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;

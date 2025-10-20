@@ -39,6 +39,14 @@ $(document).ready(function() {
   initMenu();
 });
 
-window.onload = function() {
-  document.getElementById("nav").classList.add("hidden");
-};
+// Asegurar estado inicial sin FOUC: menú oculto y botón hamburguesa visible
+window.addEventListener('DOMContentLoaded', function() {
+  var nav = document.getElementById('nav');
+  var toggle = document.getElementById('toggle');
+  if (nav && !nav.classList.contains('hidden')) {
+    nav.classList.add('hidden');
+  }
+  if (toggle) {
+    toggle.classList.remove('active');
+  }
+});
