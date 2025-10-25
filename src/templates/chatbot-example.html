@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Integración - FUNDECO Chatbot</title>
+    
+    <!-- Estilos básicos para la página -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .demo-btn {
+            background: #7cb342;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-btn:hover {
+            background: #8bc34a;
+            transform: translateY(-2px);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #7cb342;
+            margin-bottom: 1rem;
+        }
+        
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+    </style>
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+    <!-- Fuentes de Google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap">
+    
+    <!-- CHATBOT STYLES - Incluir los estilos del chatbot -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+</head>
+<body>    <!-- Header -->
+    <div class="header">
+        <h1>🤖 Asistente Comercial FUNDECO</h1>
+        <p>Chatbot especializado en ventas y atención al cliente</p>
+    </div>
+
+    <div class="container">
+        <!-- Información sobre el chatbot -->
+        <div class="card">
+            <h2>🌱 Chatbot Comercial FUNDECO</h2>
+            <p>Nuestro asistente virtual está diseñado específicamente para atender clientes potenciales, resolver consultas comerciales y promover la venta de fundas biodegradables. Es tu aliado perfecto para convertir visitantes en clientes satisfechos.</p>
+            
+            <!-- Botones de demostración -->
+            <div class="demo-buttons">
+                <button class="demo-btn" onclick="openFundecoBot()">
+                    <i class="fa fa-comments"></i> Abrir Chat Comercial
+                </button>
+                <button class="demo-btn" onclick="sendToFundecoBot('Quiero conocer los productos FUNDECO')">
+                    <i class="fa fa-shopping-cart"></i> Ver Productos
+                </button>
+                <button class="demo-btn" onclick="sendToFundecoBot('¿Cuáles son los precios y paquetes disponibles?')">
+                    <i class="fa fa-money"></i> Consultar Precios
+                </button>
+                <button class="demo-btn" onclick="sendToFundecoBot('¿Cómo hago un pedido?')">
+                    <i class="fa fa-shopping-bag"></i> Hacer Pedido
+                </button>
+                <button class="demo-btn" onclick="sendToFundecoBot('Necesito una cotización personalizada')">
+                    <i class="fa fa-calculator"></i> Solicitar Cotización
+                </button>
+                <button class="demo-btn" onclick="sendToFundecoBot('¿Hacen envíos a mi zona?')">
+                    <i class="fa fa-truck"></i> Consultar Envíos
+                </button>
+            </div>
+        </div>        <!-- Características del chatbot -->
+        <div class="card">
+            <h2>✨ Características del Asistente Comercial</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fa fa-handshake-o"></i>
+                    </div>
+                    <h3>Enfoque Comercial</h3>
+                    <p>Especializado en atención al cliente, ventas y conversión de leads</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fa fa-calculator"></i>
+                    </div>
+                    <h3>Cotizaciones</h3>
+                    <p>Información de precios, descuentos y opciones de pago personalizadas</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fa fa-leaf"></i>
+                    </div>
+                    <h3>Especializado</h3>
+                    <p>Conocimiento comercial específico sobre agricultura sostenible</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fa fa-trophy"></i>
+                    </div>
+                    <h3>Orientado a Resultados</h3>
+                    <p>Diseñado para convertir visitantes en clientes satisfechos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instrucciones de uso -->
+        <div class="card">
+            <h2>📋 Cómo Usar</h2>
+            <ol style="padding-left: 2rem; line-height: 2;">
+                <li><strong>Automático:</strong> El chatbot aparece automáticamente como un botón flotante</li>
+                <li><strong>Click to Open:</strong> Haz clic en el botón verde para abrir la ventana de chat</li>
+                <li><strong>Escribir:</strong> Escribe tu mensaje en el campo de texto</li>
+                <li><strong>Enviar:</strong> Presiona Enter o el botón de envío</li>
+                <li><strong>Sugerencias:</strong> Usa los chips de sugerencias para consultas rápidas</li>
+            </ol>
+        </div>
+
+        <!-- Código de integración -->
+        <div class="card">
+            <h2>💻 Código de Integración</h2>
+            <p>Para integrar este chatbot en tu propia página, simplemente incluye:</p>
+            
+            <pre style="background: #f1f1f1; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0;">
+<code>&lt;!-- CSS del Chatbot --&gt;
+&lt;link rel="stylesheet" href="/static/css/chatbot.css"&gt;
+
+&lt;!-- JavaScript del Chatbot --&gt;
+&lt;script src="/static/js/chatbot.js"&gt;&lt;/script&gt;</code>
+            </pre>
+            
+            <p><strong>¡Eso es todo!</strong> El chatbot se inicializará automáticamente cuando la página se cargue.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 FUNDECO - Innovación sostenible para la agricultura del futuro</p>
+        <p>🌱 Chatbot desarrollado con tecnología avanzada para agricultura sostenible</p>
+    </div>
+
+    <!-- CHATBOT JAVASCRIPT - Incluir el script del chatbot -->
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+    
+    <!-- Script adicional para funciones demo -->
+    <script>
+        // Funciones de demostración ya están disponibles globalmente
+        // openFundecoBot() - Abre el chatbot
+        // sendToFundecoBot(message) - Envía un mensaje predefinido
+        
+        console.log('🤖 Página de ejemplo cargada. El chatbot está disponible en la esquina inferior derecha.');
+        
+        // Opcional: Mostrar un mensaje de bienvenida después de unos segundos
+        setTimeout(() => {
+            console.log('💡 Tip: Haz clic en cualquiera de los botones de demostración para probar el chatbot.');
+        }, 3000);
+    </script>
+</body>
+</html>
