@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNDECO - Fundas Biodegradables para Agricultura Sostenible</title>
+    <meta name="description" content="Fundas biodegradables hechas de almidón de papa para agricultura sostenible. Innovación local para transformar el campo y cuidar el planeta.">
+      <!-- Estilos principales del sistema -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fullpage-menu.css') }}">
+    
+    <!-- Estilos del chatbot -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+    <!-- Fuentes del proyecto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700&display=swap">
+</head>
+<body>
+    <!-- Menú de pantalla completa -->
+    <div class="fullPageMenu hidden" id="nav">
+        <div class="banner">
+            <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1567&q=80" alt="Agricultura Sostenible">
+        </div>
+        <div class="nav">    
+            <ul>
+                <li><a href="#" onclick="closeMenuAndScroll('hero')" data-text="Home">Home</a></li>
+                <li><a href="#" onclick="closeMenuAndScroll('about')" data-text="Acerca">Acerca</a></li>
+                <li><a href="#" onclick="closeMenuAndScroll('services')" data-text="Servicios">Servicios</a></li>
+                <li><a href="/login-selector" data-text="Login">Login</a></li>
+                <li><a href="#" onclick="closeMenuAndScroll('portfolio')" data-text="Portfolio">Portafolio</a></li>
+                <li><a href="#" onclick="closeMenuAndScroll('contact')" data-text="Contacto">Contacto</a></li>
+            </ul>
+        </div>    </div>
+
+    <!-- Sidebar de navegación - COMENTADO -->
+    <!--
+    <div class="login-sidebar">
+        <div class="sidebar-header">
+            <a href="#" class="logo-text">FUNDECO</a>
+        </div>
+        
+        <div class="profile-section">
+            <div class="profile-img">
+                <img src="https://images.unsplash.com/photo-1440347812058-9ab63e04c43b?ixlib=rb-4.0.3&auto=format&fit=crop&w=60&h=60&q=80" alt="Naturaleza" class="profile-avatar">
+            </div>
+            <div class="welcome-text">
+                <p class="welcome-label">Bienvenido a</p>
+                <h3 class="user-name">FUNDECO</h3>
+            </div>
+        </div>
+
+        <ul class="login-menu">
+            <li class="menu-item">
+                <a href="#hero" class="menu-link">
+                    <i class="fa fa-home"></i>
+                    Inicio
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#about" class="menu-link">
+                    <i class="fa fa-leaf"></i>
+                    Nuestro Producto
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#benefits" class="menu-link">
+                    <i class="fa fa-star"></i>
+                    Beneficios
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#services" class="menu-link">
+                    <i class="fa fa-cogs"></i>
+                    Servicios
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="/login-selector" class="menu-link">
+                    <i class="fa fa-sign-in"></i>
+                    Acceso
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#contact" class="menu-link">
+                    <i class="fa fa-envelope"></i>
+                    Contacto
+                </a>
+            </li>
+        </ul>
+    </div>
+    -->
+ 
+    <!-- Botón de menú hamburguesa -->
+    <span class="menuicon" id="toggle" onclick="menuToggle()"></span>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        
+        <!-- Sección Hero -->
+        <section id="hero" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Fundas biodegradables para una agricultura sostenible</h1>
+                <p class="hero-subtitle">Innovación local para transformar el campo y cuidar el planeta.</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="cta-btn primary">Descubre más</a>
+                    <a href="#contact" class="cta-btn secondary">Contáctanos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Beneficios -->
+        <section id="benefits" class="benefits-section">
+            <div class="container">
+                <h2 class="section-title">¿Por qué elegir FUNDECO?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-leaf"></i>
+                        </div>
+                        <h3>Sostenible</h3>
+                        <p>Fabricadas con almidón de papa, se degradan naturalmente sin contaminar el suelo ni el agua.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <h3>Ahorra tiempo y dinero</h3>
+                        <p>Reduce costos de limpieza posterior y acelera los procesos agrícolas con materiales eficientes.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-tasks"></i>
+                        </div>
+                        <h3>Eficiencia agrícola</h3>
+                        <p>Optimiza la protección de cultivos y mejora la productividad con tecnología biodegradable.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fa fa-recycle"></i>
+                        </div>
+                        <h3>Economía circular</h3>
+                        <p>Contribuye a un modelo de negocio sostenible que beneficia al ambiente y la comunidad local.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Sobre el Producto -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">Innovación desde Loja para el mundo</h2>
+                        <p class="about-description">
+                            Nuestras fundas biodegradables, hechas a partir de almidón de papa, se degradan sin contaminar y son ideales para agricultores y empresas que desean reducir su huella ambiental. FUNDECO impulsa la economía circular y contribuye a un campo más sano.
+                        </p>
+                        <p class="about-description">
+                            Diseñadas específicamente para la agricultura sostenible, nuestras fundas ofrecen la resistencia necesaria durante el cultivo y se descomponen naturalmente al final de su ciclo de vida, enriqueciendo el suelo en lugar de contaminarlo.
+                        </p>
+                        <a href="#contact" class="cta-btn primary">Conoce más sobre nuestro proceso</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Agricultura sostenible">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Servicios -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fa fa-industry"></i>
+                        <h3>Producción Personalizada</h3>
+                        <p>Fabricamos fundas según las necesidades específicas de tu cultivo y tipo de agricultura.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fa fa-truck"></i>
+                        <h3>Distribución Regional</h3>
+                        <p>Entregamos en toda la región sur del Ecuador con tiempos de respuesta optimizados.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="fa fa-users"></i>
+                        <h3>Asesoría Técnica</h3>
+                        <p>Te acompañamos en la implementación y uso correcto de nuestros productos biodegradables.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>FUNDECO</h3>
+                    <p>Innovación sostenible para la agricultura del futuro</p>
+                    <div class="contact-info">
+                        <p><i class="fa fa-map-marker"></i> Loja, Ecuador</p>
+                        <p><i class="fa fa-envelope"></i> info@fundeco.ec</p>
+                        <p><i class="fa fa-phone"></i> +593 99 123 4567</p>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 FUNDECO. Todos los derechos reservados. | Loja, Ecuador</p>
+            </div>
+        </div>
+    </footer>    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/fullpage-menu.js') }}"></script>
+    
+    <!-- JavaScript del chatbot -->
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+    
+    <!-- Estilos específicos para la página home -->
+    <style>
+        /* Variables de colores para FUNDECO */
+        :root {
+            --primary-green: #2d5016;
+            --secondary-green: #4a7c59;
+            --accent-green: #7cb342;
+            --light-green: #8bc34a;
+            --earth-brown: #8d6e63;
+            --warm-orange: #ff8f00;
+        }
+
+        /* Contenido principal sin margen derecho para esta página */
+        .main-content {
+            margin-right: 0;
+            min-height: 100vh;
+        }
+
+        /* Sección Hero */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(45, 80, 22, 0.7), rgba(74, 124, 89, 0.7)), 
+                        url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(45, 80, 22, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Botones CTA */
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Teko', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-btn.primary {
+            background: var(--accent-green);
+            color: white;
+            box-shadow: 0 5px 15px rgba(124, 179, 66, 0.4);
+        }
+
+        .cta-btn.primary:hover {
+            background: var(--light-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 179, 66, 0.6);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: white;
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        /* Contenedor general */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Títulos de sección */
+        .section-title {
+            font-family: 'Teko', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-green);
+        }
+
+        /* Sección de Beneficios */
+        .benefits-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-green), var(--light-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .benefit-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .benefit-card h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        .benefit-card p {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Sección Sobre el Producto */
+        .about-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text .section-title {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .about-description {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sección de Servicios */
+        .services-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+            color: white;
+        }
+
+        .services-section .section-title {
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--warm-orange);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .service-card p {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer-section {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-info h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .footer-info p {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info i {
+            color: var(--accent-green);
+            width: 20px;
+        }
+
+        .footer-social h4 {
+            font-family: 'Teko', sans-serif;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--light-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991px) {
+            .main-content {
+                margin-right: 0;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 250px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Reglas CSS para sidebar - COMENTADAS */
+        /*
+        @media (max-width: 991px) {
+            .login-sidebar {
+                display: none;
+            }
+        }
+        */
+    </style>
+
+    <!-- Script adicional para navegación suave -->
+    <script>
+        // Función para cerrar menú y hacer scroll suave
+        function closeMenuAndScroll(sectionId) {
+            // Cerrar el menú
+            const nav = document.getElementById("nav");
+            const toggle = document.getElementById("toggle");
+            nav.classList.add("hidden");
+            toggle.classList.remove("active");
+            
+            // Hacer scroll suave a la sección
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 300);        }
+
+        // Agregar funcionalidad de scroll suave a los enlaces del sidebar - COMENTADO
+        /*
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarLinks = document.querySelectorAll('.login-sidebar a[href^="#"]');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        */
+    </script>
+</body>
+</html>
