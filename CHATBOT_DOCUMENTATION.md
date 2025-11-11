@@ -1,31 +1,25 @@
-# 🤖 FUNDECO Asistente Comercial - Guía Completa
+# FUNDECO Chatbot - Guía Completa
 
-## 📋 Descripción
-El asistente comercial de FUNDECO es un chatbot especializado en ventas y atención al cliente que ayuda a convertir visitantes en clientes satisfechos. Está diseñado específicamente para promover fundas biodegradables, resolver consultas comerciales y generar leads de alta calidad.
+## Descripción
+El chatbot de FUNDECO es un asistente virtual inteligente que ayuda a los usuarios con información sobre productos biodegradables, servicios de agricultura sostenible y consultas generales sobre la empresa.
 
-## ✨ Características Comerciales
+## Características
 
-### 🎯 Funcionalidades de Ventas
-- **Orientación comercial**: Enfoque en conversión y generación de leads
-- **Cotizaciones personalizadas**: Información de precios según necesidades del cliente
-- **Manejo de objeciones**: Respuestas preparadas para dudas comunes de clientes
-- **Llamadas a la acción**: Invitaciones claras a solicitar cotizaciones y hacer pedidos
-- **Segmentación de clientes**: Respuestas adaptadas según tipo de cliente (agricultor, viverista, hogar)
+### Funcionalidades Principales
+- **Interfaz moderna**: Diseño integrado con la paleta de colores FUNDECO
+- **Respuestas inteligentes**: Sistema basado en OpenAI GPT-3.5 Turbo
+- **Modo demo**: Funciona sin API key con respuestas predefinidas
+- **Responsive**: Se adapta a todos los dispositivos (móvil, tablet, desktop)
+- **Animaciones suaves**: Efectos visuales profesionales
 
-### 🤖 Inteligencia Artificial Comercial
-- **Prompt especializado**: Sistema optimizado para ventas y atención comercial
-- **Respuestas persuasivas**: Lenguaje orientado a beneficios y conversión
-- **Manejo profesional**: Tono amigable pero comercialmente efectivo
-- **Seguimiento proactivo**: Sugerencias de próximos pasos en el proceso de venta
-
-### 🎨 Características de Diseño
+### Características de Diseño
 - **Botón flotante**: Icono de chat siempre visible en la esquina inferior derecha
 - **Ventana emergente**: Se abre/cierra con animaciones suaves
 - **Avatar del bot**: Icono de hoja que representa sostenibilidad
 - **Indicador de escritura**: Animación mientras el bot "piensa"
 - **Sugerencias rápidas**: Chips clickeables para consultas comunes
 
-## 🚀 Instalación y Configuración
+## Instalación y Configuración
 
 ### 1. Dependencias
 ```bash
@@ -58,7 +52,7 @@ cd src/api
 python app.py
 ```
 
-## 📚 Uso del Chatbot
+## Uso del Chatbot
 
 ### Para Usuarios
 1. **Abrir el chat**: Haz clic en el botón flotante verde con icono de chat
@@ -156,7 +150,7 @@ Content-Type: application/json
 }
 ```
 
-## 🎯 Casos de Uso
+## Casos de Uso
 
 ### 1. Integración en Otras Páginas
 ```html
@@ -201,7 +195,7 @@ En `chatbot.js`, modifica el HTML del mensaje de bienvenida:
 - ❌ Requiere API key y conexión a internet
 - ❌ Puede tener costos asociados
 
-## 🐛 Solución de Problemas
+## Solución de Problemas
 
 ### El chatbot no aparece
 1. Verifica que `chatbot.css` y `chatbot.js` estén incluidos
@@ -218,7 +212,7 @@ En `chatbot.js`, modifica el HTML del mensaje de bienvenida:
 2. Asegúrate de que las variables CSS están definidas
 3. Revisa que las fuentes (Teko, Poppins) se carguen correctamente
 
-## 📱 Compatibilidad
+## Compatibilidad
 
 ### Navegadores Soportados
 - ✅ Chrome 80+
@@ -231,7 +225,7 @@ En `chatbot.js`, modifica el HTML del mensaje de bienvenida:
 - ✅ Tablet (768px - 1199px)
 - ✅ Mobile (320px - 767px)
 
-## 🚀 Próximas Funcionalidades
+## Próximas Funcionalidades
 
 ### En Desarrollo
 - [ ] Historial de conversaciones
@@ -248,13 +242,13 @@ En `chatbot.js`, modifica el HTML del mensaje de bienvenida:
 - [ ] Chat en tiempo real
 - [ ] Transferencia a humano
 
-## 📞 Soporte
+## Soporte
 
 ¿Necesitas ayuda con el chatbot? Contacta:
-- 📧 Email: info@fundeco.ec
-- 📱 Teléfono: +593 99 123 4567
-- 📍 Ubicación: Loja, Ecuador
+- Email: info@fundeco.ec
+- Teléfono: +593 99 123 4567
+- Ubicación: Loja, Ecuador
 
 ---
 
-🌱 **FUNDECO** - Innovación sostenible para la agricultura del futuro
+**FUNDECO** - Innovación sostenible para la agricultura del futuro

@@ -17,7 +17,7 @@ app.secret_key = os.getenv('SECRET_KEY', 'fundeco_secret_key_2024')
 try:
     from openai import OpenAI
     openai_api_key = os.getenv('OPENAI_API_KEY')
-    if openai_api_key and openai_api_key != 'tu_api_key_aqui':
+    if openai_api_key and openai_api_key != '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':
         client = OpenAI(api_key=openai_api_key)
         OPENAI_AVAILABLE = True
     else:
@@ -290,48 +290,33 @@ def chat():
         }), 500
 
 def get_demo_response(user_message):
-    """Función para generar respuestas demo comerciales cuando OpenAI no está disponible"""
+    """Función para generar respuestas demo cuando OpenAI no está disponible"""
     message_lower = user_message.lower()
     
-    # Respuestas comerciales basadas en palabras clave
-    if any(word in message_lower for word in ['hola', 'buenos días', 'buenas tardes', 'buenas noches', 'saludos', 'hi', 'hello']):
-        return "¡Hola! 🌱 Bienvenido a FUNDECO, tu aliado en agricultura sostenible. Soy tu asistente comercial virtual y estoy aquí para ayudarte a encontrar la mejor solución en fundas biodegradables para tu cultivo.\n\n¿Qué tipo de proyecto agrícola tienes? ¿Eres agricultor, viverista, o tienes un huerto casero? Me encantaría conocer tus necesidades para recomendarte la opción perfecta. ✨"
+    # Respuestas basadas en palabras clave
+    if any(word in message_lower for word in ['hola', 'buenos días', 'buenas tardes', 'buenas noches', 'saludos']):
+        return "¡Hola! 🌱 Bienvenido a FUNDECO. Soy tu asistente virtual especializado en agricultura sostenible. ¿En qué puedo ayudarte hoy? Puedo contarte sobre nuestras fundas biodegradables, beneficios, servicios o cualquier duda sobre agricultura sostenible."
     
-    elif any(word in message_lower for word in ['producto', 'funda', 'biodegradable', 'almidón', 'papa', 'material', 'qué es']):
-        return "🌿 ¡Excelente pregunta! Nuestras fundas biodegradables FUNDECO están elaboradas con almidón de papa, un material 100% natural que revoluciona la agricultura sostenible.\n\n✅ **Lo que las hace especiales:**\n• Misma resistencia que fundas plásticas durante el cultivo\n• Se degradan naturalmente en menos de 1 año\n• Enriquecen el suelo al descomponerse\n• Sin residuos tóxicos ni contaminación\n\n💰 **Ahorro real:** No necesitas recoger, transportar ni gestionar residuos plásticos.\n\n¿Para qué tipo de cultivo las necesitas? Te ayudo a elegir el tamaño perfecto. 🌱"
+    elif any(word in message_lower for word in ['producto', 'funda', 'biodegradable', 'almidón', 'papa']):
+        return "🌿 Nuestras fundas biodegradables están hechas de almidón de papa, un material 100% natural que se degrada completamente sin contaminar el suelo ni el agua. Son ideales para agricultura sostenible ya que ofrecen la resistencia necesaria durante el cultivo y luego se descomponen naturalmente, enriqueciendo el suelo."
     
-    elif any(word in message_lower for word in ['beneficio', 'ventaja', 'por qué', 'mejor', 'diferencia']):
-        return "✨ **¿Por qué elegir FUNDECO?** Nuestros clientes obtienen beneficios reales:\n\n🌱 **Para tu bolsillo:**\n• Sin costos de limpieza y gestión de residuos\n• Descuentos por volumen disponibles\n• Precio competitivo vs. plásticas + gestión\n\n🌍 **Para tu imagen:**\n• Diferenciación como agricultor responsable\n• Clientes prefieren productos sostenibles\n• Cumples normativas ambientales\n\n⚡ **Para tu operación:**\n• Eliminas tiempo de recolección de plástico\n• Mejoras calidad del suelo naturalmente\n• Proceso más simple y eficiente\n\n¿Cuál de estos beneficios te interesa más? ¡Preparo una cotización personalizada! 💚"
+    elif any(word in message_lower for word in ['beneficio', 'ventaja', 'por qué', 'mejor']):
+        return "✨ Los principales beneficios de FUNDECO son:\n\n🌱 Sostenible: Se degradan naturalmente sin contaminar\n💰 Ahorra tiempo y dinero: Reduce costos de limpieza\n📈 Eficiencia agrícola: Mejora la productividad\n♻️ Economía circular: Contribuye a un modelo sostenible\n\n¿Te gustaría conocer más detalles sobre alguno de estos beneficios?"
     
-    elif any(word in message_lower for word in ['servicio', 'ofrece', 'distribución', 'asesoría', 'pedido', 'comprar']):
-        return "🛒 **Servicios FUNDECO disponibles para ti:**\n\n📦 **Venta Directa:** Fundas en diferentes tamaños, entrega en Loja y alrededores\n\n🎯 **Pedidos Personalizados:** Tamaños especiales según tu cultivo específico\n\n🚚 **Distribución Regional:** Cobertura en sur de Ecuador, opciones de envío\n\n👥 **Asesoría al Cliente:** Te orientamos sobre uso y recomendaciones\n\n**¿Cómo hacer tu pedido?**\n1️⃣ Me cuentas cantidad y tamaño\n2️⃣ Te envío cotización personalizada\n3️⃣ Confirmas y coordinamos entrega\n\n¿Qué cantidad necesitas? ¡Empecemos! 🚀"
+    elif any(word in message_lower for word in ['servicio', 'ofrece', 'distribución', 'asesoría']):
+        return "🔧 Nuestros principales servicios incluyen:\n\n🏭 Producción personalizada según tu cultivo\n🚚 Distribución regional en el sur de Ecuador\n👥 Asesoría técnica especializada\n📋 Capacitación en uso correcto\n📊 Seguimiento post-implementación\n\n¿Necesitas información específica sobre algún servicio?"
     
-    elif any(word in message_lower for word in ['precio', 'costo', 'cotización', 'presupuesto', 'cuánto', 'valor']):
-        return "💰 **Precios FUNDECO - Inversión inteligente:**\n\n📦 **Paquete Pequeño** (100 fundas): $15-25\n⭐ **Paquete Mediano** (500 fundas): $60-90\n🏢 **Pedidos Grandes** (1000+): Cotización con descuentos por volumen\n\n💡 **¡Recuerda!** Aunque el precio unitario puede ser ligeramente superior a plásticas tradicionales, tu ahorro real está en:\n• No recoger residuos\n• No transportar desechos\n• No gestionar plásticos\n• Mejor imagen ante clientes conscientes\n\n¿Qué cantidad necesitas? Te preparo cotización exacta con descuentos aplicables. Los precios varían según tamaño y personalización. 📊"
+    elif any(word in message_lower for word in ['precio', 'costo', 'cotización', 'presupuesto']):
+        return "💰 Nuestros precios varían según las necesidades específicas de tu cultivo. Ofrecemos:\n\n📦 Plan Básico: Desde $50 por hectárea\n⭐ Plan Profesional: Desde $120 por hectárea\n🏢 Plan Enterprise: Cotización personalizada\n\n¿Te gustaría que te contactemos para una cotización personalizada?"
     
-    elif any(word in message_lower for word in ['contacto', 'teléfono', 'email', 'dirección', 'ubicación', 'llamar']):
-        return "📞 **Contáctanos - FUNDECO siempre disponible:**\n\n📧 **Email:** info@fundeco.ec\n📱 **WhatsApp Business:** [Próximamente disponible]\n📍 **Ubicación:** Loja, Ecuador\n🕒 **Horarios:** \n• Lunes a Viernes: 8:00 - 17:00\n• Sábados: 9:00 - 13:00\n\n**¿Prefieres que te contactemos nosotros?**\nDéjame tu consulta específica y un miembro de nuestro equipo comercial te contactará en menos de 24 horas.\n\n¡Estamos aquí para hacer realidad tu agricultura sostenible! 🌱💚"
+    elif any(word in message_lower for word in ['contacto', 'teléfono', 'email', 'dirección', 'ubicación']):
+        return "📞 Puedes contactarnos por:\n\n📧 Email: info@fundeco.ec\n📱 Teléfono: +593 99 123 4567\n📍 Ubicación: Loja, Ecuador\n\n¡Estaremos encantados de atenderte y resolver todas tus dudas sobre agricultura sostenible!"
     
-    elif any(word in message_lower for word in ['duran', 'duración', 'tiempo', 'resistencia', 'funciona']):
-        return "⏰ **Duración perfecta para tu cultivo:**\n\nNuestras fundas FUNDECO mantienen **resistencia completa durante todo el ciclo de cultivo** (3-6 meses según tipo de planta). Después se degradan naturalmente en contacto con el suelo en **menos de un año** sin dejar residuos tóxicos.\n\n✅ **Lo mejor de ambos mundos:**\n• Resistencia cuando la necesitas\n• Desaparición cuando ya no la necesitas\n\n**Casos de éxito:** Agricultores y viveristas de la zona ya las usan con resultados excelentes.\n\n¿Te gustaría conectar con algún cliente que ya las usa? O podemos empezar con un pedido pequeño de prueba. 🌱"
-    
-    elif any(word in message_lower for word in ['caro', 'costoso', 'presupuesto', 'barato', 'económico']):
-        return "💭 **Entiendo tu preocupación sobre el presupuesto.**\n\nCon fundas plásticas tradicionales inviertes tiempo y dinero en:\n❌ Recogerlas manualmente\n❌ Transportarlas como residuo\n❌ Gestionar desechos\n❌ Cumplir normativas ambientales\n\n**Con FUNDECO simplemente las dejas en el suelo y se degradan solas.**\n\n💡 **Opciones para tu presupuesto:**\n• Descuentos por volumen disponibles\n• Planes de pago flexibles\n• Pedidos de prueba en cantidades pequeñas\n\n¿Qué cantidad necesitarías? Preparo una cotización ajustada a tu presupuesto específico. 🤝"
-    
-    elif any(word in message_lower for word in ['seguro', 'confianza', 'funcionar', 'igual', 'plástico']):
-        return "🎯 **¡Excelente pregunta sobre confiabilidad!**\n\nNuestras fundas están **diseñadas para igualar la resistencia** de fundas plásticas durante el ciclo completo de cultivo. \n\n✅ **Respaldados por resultados reales:**\n• Muchos agricultores y viveristas de la zona ya las usan\n• Resultados excelentes comprobados\n• Testimonios de clientes satisfechos disponibles\n\n**¿Te gustaría:**\n🤝 Conectar con algún cliente que ya las usa?\n📦 Empezar con pedido pequeño de prueba?\n📋 Recibir casos de éxito documentados?\n\nNo hay riesgo en probar. ¡Tu tranquilidad es nuestra prioridad! 🌱"
-    
-    elif any(word in message_lower for word in ['envío', 'entrega', 'fuera', 'transporte', 'distribución']):
-        return "🚚 **Distribución FUNDECO - Te alcanzamos donde estés:**\n\n📍 **Cobertura principal:** Loja y sur de Ecuador\n🎯 **Entregas regulares:** Sin costo adicional en zona de cobertura\n📦 **Pedidos grandes fuera de zona:** Coordinamos envíos especiales\n\n**Proceso de entrega:**\n1️⃣ Confirmas tu pedido\n2️⃣ Coordinamos fecha y lugar\n3️⃣ Recibis tus fundas listas para usar\n\n¿En qué ciudad te encuentras? Te confirmo disponibilidad de entrega y tiempos exactos.\n\n**¡No dejes que la distancia te detenga en tu agricultura sostenible!** 🌍"
-    
-    elif any(word in message_lower for word in ['tamaño', 'medida', 'diferentes', 'personalizado', 'especial']):
-        return "📏 **Tamaños FUNDECO - Perfecto para cada cultivo:**\n\n✅ **Tamaños estándar disponibles** para diferentes tipos de cultivo\n🎯 **Pedidos personalizados** según necesidades específicas\n📋 **Asesoría incluida** para elegir el tamaño ideal\n\n**Para recomendarte el tamaño perfecto, cuéntame:**\n• ¿Qué tipo de cultivo tienes?\n• ¿Cuál es el tamaño aproximado de tus plantas?\n• ¿Cuántas plantas planeas cubrir?\n\n**Nuestro equipo tiene experiencia con:**\n🌱 Hortalizas y verduras\n🌿 Plantas ornamentales\n🌳 Frutales jóvenes\n🏡 Huertos caseros\n\n¡Hagamos que cada funda sea perfecta para tu proyecto! 🎯"
-    
-    elif any(word in message_lower for word in ['gracias', 'thank', 'perfecto', 'excelente', 'bien']):
-        return "¡De nada! 😊 **Es un placer ayudarte a crecer de forma sostenible.**\n\nEn FUNDECO estamos comprometidos con hacer que tu agricultura sea más rentable Y más responsable con el medio ambiente.\n\n🌱 **¿El siguiente paso?**\n• ¿Te gustaría una cotización personalizada?\n• ¿Necesitas más información sobre algún aspecto?\n• ¿Quieres comenzar con un pedido de prueba?\n\n**Recuerda:** Cada funda FUNDECO que usas es un paso hacia un futuro más verde y una agricultura más rentable.\n\n¡Estoy aquí para cuando necesites cualquier cosa! 💚✨"
+    elif any(word in message_lower for word in ['gracias', 'thank', 'perfecto', 'excelente']):
+        return "¡De nada! 😊 Es un placer ayudarte. En FUNDECO estamos comprometidos con la agricultura sostenible y el cuidado del medio ambiente. Si tienes más preguntas sobre nuestras fundas biodegradables o servicios, no dudes en consultarme. ¡Juntos construimos un futuro más verde! 🌱"
     
     else:
-        return "🌱 **¡Gracias por tu consulta sobre FUNDECO!**\n\nComo tu asistente comercial, puedo ayudarte con:\n\n🛒 **Información comercial:**\n• Productos y tamaños disponibles\n• Precios y cotizaciones personalizadas\n• Descuentos por volumen\n\n📋 **Asesoría especializada:**\n• Recomendaciones según tu cultivo\n• Beneficios específicos para tu caso\n• Comparativas con alternativas tradicionales\n\n🚚 **Proceso de compra:**\n• Cómo hacer pedidos\n• Opciones de entrega\n• Plazos y disponibilidad\n\n**¿Sobre qué tema específico te gustaría saber más?** Estoy aquí para ayudarte a tomar la mejor decisión para tu agricultura sostenible. 🎯"
+        return "🌱 Gracias por tu consulta. Como asistente de FUNDECO, puedo ayudarte con información sobre:\n\n• Fundas biodegradables de almidón de papa\n• Beneficios de la agricultura sostenible\n• Nuestros servicios especializados\n• Precios y cotizaciones\n• Información de contacto\n\n¿Sobre qué tema específico te gustaría saber más?"
 
 if __name__ == "__main__":
     app.run(debug=True)
