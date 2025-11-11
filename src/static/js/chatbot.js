@@ -27,9 +27,10 @@ class FundecoBot {
                 <div class="chatbot-header">
                     <div class="chatbot-avatar">
                         <i class="fa fa-leaf"></i>
-                    </div>                    <div class="chatbot-info">
-                        <h3>Asistente Comercial</h3>
-                        <p>Especialista en agricultura sostenible</p>
+                    </div>
+                    <div class="chatbot-info">
+                        <h3>FUNDECO Bot</h3>
+                        <p>Asistente virtual sostenible</p>
                     </div>
                 </div>                <!-- Área de mensajes -->
                 <div class="chatbot-messages" id="chatbotMessages">
